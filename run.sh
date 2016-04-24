@@ -1,2 +1,2 @@
-cd commvault_app
+cd ./commvault_app
 python __init__.py
