@@ -1,0 +1,67 @@
+# CommValut App for Prism Nutanix
+# This is a sample app to demnostrate extensiblity
+# of Prism App platform
+swagger: '2.0'
+
+info:
+  version: "0.0.1"
+  title: "CommValut Prism App"
+
+paths:
+  /login:
+    post:
+      description: |
+        Post Login parameters for commvault server
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/login_params"
+      responses:
+        200:
+          description: successfull response
+          schema:
+            $ref: "#/definitions/login_response"
+  /logout:
+    post:
+      description: |
+        Logouts the user from commvault server
+      parameters:
+        - name: AuthToken
+          in: header
+          required: true
+          type: string
+      responses:
+        200:
+          description: successfully logged out
+          
+definitions:
+  login_params:
+    type: object
+    title: login params
+    required:
+    - user
+    - password
+    - server
+    properties:
+      user:
+        type: string
+        description: username for commvault server
+      password:
+        type: string
+        format: password
+        description: password for commvault server
+      server:
+        type: string
+        description: hostname or ip string for commvault server
+  login_response:
+    type: object
+    title: auth token
+    required:
+    - token
+    properties:
+      token:
+        type: string
+        format: integer
+        description: token string to be used in subsequent requests

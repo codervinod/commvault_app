@@ -1,0 +1,90 @@
+{
+  "info": {
+    "version": "0.0.1", 
+    "title": "CommValut Prism App"
+  }, 
+  "paths": {
+    "/login": {
+      "post": {
+        "description": "Post Login parameters for commvault server\n", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/login_params"
+            }, 
+            "required": true, 
+            "name": "body", 
+            "in": "body"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "successfull response", 
+            "schema": {
+              "$ref": "#/definitions/login_response"
+            }
+          }
+        }
+      }
+    }, 
+    "/logout": {
+      "post": {
+        "description": "Logouts the user from commvault server\n", 
+        "parameters": [
+          {
+            "required": true, 
+            "type": "string", 
+            "name": "AuthToken", 
+            "in": "header"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "successfully logged out"
+          }
+        }
+      }
+    }
+  }, 
+  "swagger": "2.0", 
+  "definitions": {
+    "login_params": {
+      "required": [
+        "user", 
+        "password", 
+        "server"
+      ], 
+      "type": "object", 
+      "properties": {
+        "password": {
+          "type": "string", 
+          "description": "password for commvault server", 
+          "format": "password"
+        }, 
+        "user": {
+          "type": "string", 
+          "description": "username for commvault server"
+        }, 
+        "server": {
+          "type": "string", 
+          "description": "hostname or ip string for commvault server"
+        }
+      }, 
+      "title": "login params"
+    }, 
+    "login_response": {
+      "required": [
+        "token"
+      ], 
+      "type": "object", 
+      "properties": {
+        "token": {
+          "type": "string", 
+          "description": "token string to be used in subsequent requests", 
+          "format": "integer"
+        }
+      }, 
+      "title": "auth token"
+    }
+  }
+}
