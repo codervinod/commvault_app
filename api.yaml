@@ -6,7 +6,11 @@ swagger: '2.0'
 info:
   version: "0.0.1"
   title: "CommValut Prism App"
-
+basePath: /v1
+consumes:
+  - application/json
+produces:
+  - application/json
 paths:
   /login:
     post:

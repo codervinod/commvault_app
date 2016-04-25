@@ -46,7 +46,9 @@
       }
     }
   }, 
-  "swagger": "2.0", 
+  "produces": [
+    "application/json"
+  ], 
   "definitions": {
     "login_params": {
       "required": [
@@ -86,5 +88,10 @@
       }, 
       "title": "auth token"
     }
-  }
+  }, 
+  "basePath": "/v1", 
+  "swagger": "2.0", 
+  "consumes": [
+    "application/json"
+  ]
 }
