@@ -7,6 +7,14 @@
     "/login": {
       "post": {
         "description": "Post Login parameters for commvault server\n", 
+        "responses": {
+          "200": {
+            "description": "successfull response", 
+            "schema": {
+              "$ref": "#/definitions/login_response"
+            }
+          }
+        }, 
         "parameters": [
           {
             "schema": {
@@ -17,19 +25,19 @@
             "in": "body"
           }
         ], 
-        "responses": {
-          "200": {
-            "description": "successfull response", 
-            "schema": {
-              "$ref": "#/definitions/login_response"
-            }
-          }
-        }
+        "tags": [
+          "login"
+        ]
       }
     }, 
     "/logout": {
       "post": {
         "description": "Logouts the user from commvault server\n", 
+        "responses": {
+          "200": {
+            "description": "successfully logged out"
+          }
+        }, 
         "parameters": [
           {
             "required": true, 
@@ -38,11 +46,9 @@
             "in": "header"
           }
         ], 
-        "responses": {
-          "200": {
-            "description": "successfully logged out"
-          }
-        }
+        "tags": [
+          "logout"
+        ]
       }
     }
   }, 
