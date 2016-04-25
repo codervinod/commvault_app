@@ -2,3 +2,5 @@ Flask
 Jinja2
 Flask-RESTful
 jsonschema
+swagger-py-codegen
+swagger-spec-validator
