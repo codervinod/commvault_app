@@ -12,6 +12,7 @@ python-dateutil==2.5.3
 pytz==2016.4
 PyYAML==3.11
 requests==2.9.1
+requests-mock==0.7.0
 six==1.10.0
 swagger-py-codegen==0.1.15
 swagger-spec-validator==2.0.2
